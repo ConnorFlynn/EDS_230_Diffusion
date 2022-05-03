@@ -1,0 +1,28 @@
+---
+title: "Assignment 6 - Diffusion"
+author: "Ian Brunjes, Charles Hendrickson, Connor Flynn"
+date: "5/3/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+source("../R/diffusion.R")
+
+
+initialC = 100 # initialC  initial concentration (mg/L)
+dx = 10 # dx length of each segment (m)
+nx = 10 # nx  number of discrete segments (m)
+nt = 10 # nt  number of discrete time intervals (s)
+dt = 10 # dt  seconds in each time interval (s)
+area = 10 # area area of cross section of container (m2)
+D = 1 # D  diffusivity (how easily the chemical diffuses (s/m2)
+
+result = diff1(initialC = initialC, nt = nt, dt = dt, nx = nx, D = D, area = area, dx = dx)
+filled.contour(result$conc, ylab="Distance", xlab="Time")
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
